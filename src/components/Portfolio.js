@@ -77,30 +77,30 @@ class Portfolio extends Component {
         },
       ],
       filters: ['All', 'Websites', 'Flayers', 'Business Cards'],
-      selected: 'Business Cards',
+      selected: 'All',
     };
   }
 
   filterProject = (items, filter) => {
     switch (filter) {
       case 'Websites':
-        return items.filter(item => item.category === 'Websites');
+        return items.filter((item) => item.category === 'Websites');
       case 'Flayers':
-        return items.filter(item => item.category === 'Flayers');
+        return items.filter((item) => item.category === 'Flayers');
       case 'Business Cards':
-        return items.filter(item => item.category === 'Business Cards');
+        return items.filter((item) => item.category === 'Business Cards');
       default:
         return items;
     }
-  }
+  };
 
   onSelectFilter = (selected) => {
-    this.setState({selected});
-  }
+    this.setState({ selected });
+  };
 
   render() {
-    const {projects, filters, selected} = this.state
-    const visibleProject = this.filterProject(projects, selected)
+    const { projects, filters, selected } = this.state;
+    const visibleProject = this.filterProject(projects, selected);
     return (
       <div className="wrapper">
         <Toolbar
@@ -108,8 +108,7 @@ class Portfolio extends Component {
           selected={selected}
           onSelectFilter={this.onSelectFilter}
         />
-        <ProjectList
-          projects={visibleProject} />
+        <ProjectList projects={visibleProject} />
       </div>
     );
   }
