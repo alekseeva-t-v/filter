@@ -1,5 +1,12 @@
+/**
+ * Компонент отвечающий за вывод блока с работами портфолио. Родительский компонент Portfolio
+ *
+ * @param {object} props.projects Массив проектов.
+ */
 const ProjectList = (props) => {
+
   const { projects } = props;
+
   let columnLength = Math.round(projects.length / 3);
 
   const projectFirstColumn = projects.map((item, index) => {

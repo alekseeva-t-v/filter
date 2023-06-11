@@ -1,15 +1,22 @@
+/**
+ * Компонент отвечающий за вывод блока кнопок фильтров. Родительский компонент Portfolio
+ *
+ * @param {object} props.filters Массив фильтров.
+ * @param {string} props.selected выбранный активный фильтр.
+ * @param {function} props.onSelectFilter Функция, передающая выбранный параметр фильтрации в компонент Portfolio.
+ */
 const Toolbar = (props) => {
-  const { filters, selected } = props;
+  const { filters, selected, onSelectFilter } = props;
 
   const buttons = filters.map((item) => {
-    const clazz = selected === item ? 'btn-active' : 'btn';
+    const className = selected === item ? 'btn-active' : 'btn';
 
     return (
       <button
-        className={clazz}
+        className={className}
         type="button"
         key={item}
-        onClick={() => props.onSelectFilter(item)}
+        onClick={() => onSelectFilter(item)}
       >
         {item}
       </button>
